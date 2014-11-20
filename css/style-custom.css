@@ -6,11 +6,15 @@
 	font-weight: 400px;
 }
 .ui-dialog{
-	padding: none !important;
+	padding: 0em !important;
 }
 
 .treeicons{
 	font-size: 20px;
 	font-weight: bold;
 	padding: 2px;
+}
+
+.ui-dialog .ui-dialog-titlebar{
+	padding: .1em .4em !important;
 }
