@@ -8,3 +8,9 @@
 .ui-dialog{
 	padding: none !important;
 }
+
+.treeicons{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 2px;
+}
