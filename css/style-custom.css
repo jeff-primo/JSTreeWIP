@@ -1,0 +1,10 @@
+.ui-widget-header{
+	color: #434a54;
+	background-color: #e6e9ed;
+	border-color: #e6e9ed;
+	font-size: 14px;
+	font-weight: 400px;
+}
+.ui-dialog{
+	padding: none !important;
+}

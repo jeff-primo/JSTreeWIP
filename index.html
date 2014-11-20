@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="css/site.min.css">
+  <meta charset="utf-8">
+  <title>jsTree test</title>
+  <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+  
+
+<!-- Optional - Adds useful class to manipulate icon font display -->
+<link rel="stylesheet" href="css/helper.css">
+
+  <link href="jquery-ui.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style-custom.css">
+ 
+  <!-- 2 load the theme CSS file -->
+  <link rel="stylesheet" href="dist/themes/default/style.css" />
+  <link rel="stylesheet" href="dist/themes/default-dark/style.css" />
+</head>
+<body>
+
+
+
+<div id="dialog" title="File Browser">
+  <div id="jstree">
+    <!-- in this example the tree is populated from inline HTML -->
+    <ul>
+      <li>Root node 1
+        <ul>
+          <li id="child_node_1">Child node 1</li>
+          <li>Child node 2</li>
+        </ul>
+      </li>
+      <li>Root node 2</li>
+    </ul>
+  </div>
+  <button>demo button</button>
+</div>
+  <!-- 3 setup a container element -->
+  
+
+  <!-- 4 include the jQuery library -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- 5 include the minified jstree source -->
+  <script src="dist/jstree.min.js"></script>
+  <script src="dist/jquery-ui.js"></script>
+  <script>
+  $(function () {
+    // 6 create an instance when the DOM is ready
+    $('#jstree').jstree({
+  "core" : { // core options go here
+    "multiple" : false, // no multiselection
+    "themes" : {
+      "dots" : false // no connecting dots between dots
+    }
+  },
+  "plugins" : ["state"] // activate the state plugin on this instance
+});
+    // 7 bind to events triggered on the tree
+    $('#jstree').on("changed.jstree", function (e, data) {
+      console.log(data.selected);
+    });
+    // 8 interact with the tree - either way is OK
+    $('button').on('click', function () {
+      $('#jstree').jstree(true).select_node('child_node_1');
+      $('#jstree').jstree('select_node', 'child_node_1');
+      $.jstree.reference('#jstree').select_node('child_node_1');
+    });
+  });
+  </script>
+<!-- Open Dialog Script -->
+  <script>
+    $( "#dialog" ).dialog({
+  autoOpen: true,
+  width: 400,
+  buttons: [
+    {
+      text: "Ok",
+      click: function() {
+        $( this ).dialog( "close" );
+      }
+    },
+    {
+      text: "Cancel",
+      click: function() {
+        $( this ).dialog( "close" );
+      }
+    }
+  ]
+});
+  </script>
+</body>
+</html>
